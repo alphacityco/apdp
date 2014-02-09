@@ -18,6 +18,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 group :development do
   gem 'sqlite3'
+  gem 'heroku_san'
 end
 
 group :production do
