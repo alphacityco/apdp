@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -15,6 +16,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'thin'
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'newrelic_rpm'
 
 group :development do
   gem 'sqlite3'
