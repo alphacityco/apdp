@@ -27,6 +27,7 @@ Apdp::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
+  # config.assets.compile = false
   config.assets.compile = true
 
   # Generate digests for assets URLs.
@@ -60,7 +61,6 @@ Apdp::Application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
-  # config.assets.initialize_on_precompile = false
   config.assets.precompile += %w[active_admin.css active_admin.js print.css]
   config.assets.precompile += %w[active_admin/print.css]
 
