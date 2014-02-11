@@ -6,6 +6,7 @@ ActiveAdmin.register ExternUrl do
       f.input :extern_service_id
       f.input :hotel_id
     end
+    f.actions
   end
 
 end

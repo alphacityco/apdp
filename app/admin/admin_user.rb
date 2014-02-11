@@ -15,7 +15,7 @@ ActiveAdmin.register AdminUser do
     f.inputs "Admin Reference - an email will be sent to the user for become an admin user" do
       f.input :email
     end
-    # f.buttons
+    f.actions
   end
 
 end
