@@ -23,6 +23,7 @@ group :development do
   gem 'sqlite3'
   gem 'heroku_san'
   gem 'seed_dumper'
+  gem "rails-erd"
 end
 
 group :production do
