@@ -3,11 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background: #F3F3E9;
+  background: #DC2A4D;
 }
 
-#apdp_logo {
-  width: 50%;
-  margin-left: 25%;
-  border: 1px solid #E3DFD4;
+.logo_spinner {
+  width: 600px;
+  height: 600px;
+  background-color: #333;
+  background-image: url('/assets/apdp_logo.jpg');
+  margin: 40px auto;
+  -webkit-animation: rotateplane 2.2s infinite ease-in-out;
+  animation: rotateplane 2.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(2400px) }
+  50% { -webkit-transform: perspective(2400px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(2400px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(2400px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(2400px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(2400px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(2400px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(2400px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(2400px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }
