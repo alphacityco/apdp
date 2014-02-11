@@ -84,6 +84,9 @@ GEM
       json
       rake
     hike (1.2.3)
+    httparty (0.12.0)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
@@ -106,6 +109,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
+    multi_xml (0.5.5)
     newrelic_rpm (3.7.2.192)
     orm_adapter (0.5.0)
     pg (0.17.1)
@@ -188,6 +192,7 @@ DEPENDENCIES
   activeadmin!
   coffee-rails (~> 4.0.0)
   heroku_san
+  httparty
   jbuilder (~> 1.2)
   jquery-rails
   newrelic_rpm

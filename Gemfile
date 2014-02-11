@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'thin'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
+gem 'httparty'
+
 gem 'newrelic_rpm'
 
 group :development do
