@@ -13,11 +13,13 @@
 production:
   app: apdp
   stack: cedar
-  config:
+  config: &default
     BUNDLE_WITHOUT: "development:test"
+    HOST_URL: "apdp.herokuapp.com"
 
 testing:
   app: apdp-testing
   stack: cedar
   config: &default
     BUNDLE_WITHOUT: "development:test"
+    HOST_URL: "apdp-testing.herokuapp.com"
