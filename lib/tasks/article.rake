@@ -11,13 +11,11 @@ namespace :articles do
     end
 
     Article.find_or_create_by(src_id: post['id']) do |_post|
-      _post.title = post['title']
       _post.title_plain = post['title_plain']
       _post.status = post['status']
       _post.content = post['content']
       _post.excerpt = post['excerpt']
       _post.url = post['url']
-      _post.slug = post['slug']
       _post.date = post['date']
       _post.modified = post['modified']
       _post.author_id = author['id']

@@ -3,7 +3,9 @@ ActiveAdmin.register Hotel do
   show do |hotel|
     attributes_table do
       row :name
-      row :image_url
+      row :image_url do
+        img src: hotel.image_url
+      end
       row :content
     end
 
@@ -13,12 +15,32 @@ ActiveAdmin.register Hotel do
         panel "Article ID: #{article.id}" do
           attributes_table_for article do
             row :src_id
-            row :title
+            row :title_plain
             row :status
             row :url
             row :author
             row :date
             row :modified
+            row :go_to_article do
+              link_to 'Go To Article', admin_article_path( article.id )
+            end
+          end
+        end
+
+      end
+    end
+
+    panel "URL List" do
+      hotel.extern_urls.each do |e_url|
+
+        panel "URL ID: #{e_url.id}" do
+          attributes_table_for e_url do
+            row :url
+            row :extern_service
+            row :hotel
+            row :go_to_url_relation do
+              link_to 'Go To URL Relation', admin_extern_url_path( e_url.id )
+            end
           end
         end
 
@@ -40,9 +62,19 @@ ActiveAdmin.register Hotel do
           art_rel_f.input :_destroy, :as => :boolean, :label => "Delete this article relation?"
         end
 
-        # art_rel_f.input :hotel
         art_rel_f.input :article
         art_rel_f.input :relation_description
+      end
+    end
+
+    f.has_many :extern_urls, :name => "Extern URLs" do |e_url|
+      e_url.inputs "New URL Relation" do
+        unless e_url.object.nil?
+          e_url.input :_destroy, :as => :boolean, :label => "Delete this url relation?"
+        end
+
+        e_url.input :url
+        e_url.input :extern_service
       end
     end
 

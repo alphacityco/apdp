@@ -10,7 +10,9 @@ ActiveAdmin.register_page "Dashboard" do
         # small I18n.t("active_admin.dashboard_welcome.call_to_action")
         span "A Pie de Pagina - Admin"
         br
-        img src: "/assets/apdp_logo.jpg", width: "300px"
+        a href: 'http://apiedepagina.com', target: '_new' do
+          img src: "/assets/apdp_logo.jpg", width: "300px"
+        end
       end
     end
 

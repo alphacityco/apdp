@@ -48,13 +48,11 @@ ActiveRecord::Schema.define(version: 20140209161500) do
 
   create_table "articles", force: true do |t|
     t.integer  "src_id"
-    t.string   "title"
     t.string   "title_plain"
     t.string   "status"
     t.text     "content"
     t.text     "excerpt"
     t.string   "url"
-    t.string   "slug"
     t.integer  "author_id"
     t.string   "image_full_url"
     t.string   "image_medium_url"
