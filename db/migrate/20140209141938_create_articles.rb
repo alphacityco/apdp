@@ -13,12 +13,12 @@ class CreateArticles < ActiveRecord::Migration
       t.string :image_full_url
       t.string :image_medium_url
       t.string :image_thumbnail_url
-      t.string :previous_url
-      t.string :next_url
 
       t.date :date
       t.date :modified
       t.timestamps
     end
+
+    add_index :articles, :src_id, :unique => true
   end
 end

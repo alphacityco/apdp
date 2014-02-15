@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 20140209161500) do
     t.string   "image_full_url"
     t.string   "image_medium_url"
     t.string   "image_thumbnail_url"
-    t.string   "previous_url"
-    t.string   "next_url"
     t.date     "date"
     t.date     "modified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "articles", ["src_id"], name: "index_articles_on_src_id", unique: true
 
   create_table "articles_hotels", force: true do |t|
     t.integer "article_id"
@@ -75,14 +75,14 @@ ActiveRecord::Schema.define(version: 20140209161500) do
 
   create_table "authors", force: true do |t|
     t.integer  "src_id"
-    t.string   "slug"
     t.string   "name"
     t.string   "nickname"
     t.string   "url"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "authors", ["src_id"], name: "index_authors_on_src_id", unique: true
 
   create_table "extern_services", force: true do |t|
     t.string   "name"

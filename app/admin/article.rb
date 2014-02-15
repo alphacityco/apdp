@@ -14,8 +14,6 @@ ActiveAdmin.register Article do
       row :image_full_url
       row :image_medium_url
       row :image_thumbnail_url
-      row :previous_url
-      row :next_url
       row :date
       row :modified
       row :created_at
