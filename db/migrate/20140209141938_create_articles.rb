@@ -12,8 +12,8 @@ class CreateArticles < ActiveRecord::Migration
       t.string :image_medium_url
       t.string :image_thumbnail_url
 
-      t.date :date
-      t.date :modified
+      t.datetime :date
+      t.datetime :modified
       t.timestamps
     end
 

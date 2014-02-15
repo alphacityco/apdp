@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20140209161500) do
     t.string   "image_full_url"
     t.string   "image_medium_url"
     t.string   "image_thumbnail_url"
-    t.date     "date"
-    t.date     "modified"
+    t.datetime "date"
+    t.datetime "modified"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
