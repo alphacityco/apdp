@@ -5,27 +5,27 @@ namespace :articles do
   def save_resource post
     author = post['author']
     Author.find_or_create_by(src_id: author['id']) do |_author|
-      puts _author.name = author['name']
-      puts _author.nickname = author['nickname']
-      puts _author.url = author['url']
+      _author.name = author['name']
+      _author.nickname = author['nickname']
+      _author.url = author['url']
     end
 
     Article.find_or_create_by(src_id: post['id']) do |_post|
-      puts _post.title = post['title']
-      puts _post.title_plain = post['title_plain']
-      puts _post.status = post['status']
-      puts _post.content = post['content']
-      puts _post.excerpt = post['excerpt']
-      puts _post.url = post['url']
-      puts _post.slug = post['slug']
-      puts _post.date = post['date']
-      puts _post.modified = post['modified']
-      puts _post.author_id = author['id']
+      _post.title = post['title']
+      _post.title_plain = post['title_plain']
+      _post.status = post['status']
+      _post.content = post['content']
+      _post.excerpt = post['excerpt']
+      _post.url = post['url']
+      _post.slug = post['slug']
+      _post.date = post['date']
+      _post.modified = post['modified']
+      _post.author_id = author['id']
 
       images = post['thumbnail_images']
-      puts _post.image_full_url = images['full']['url']
-      puts _post.image_medium_url = images['medium']['url']
-      puts _post.image_thumbnail_url = images['thumbnail']['url']
+      _post.image_full_url = images['full']['url']
+      _post.image_medium_url = images['medium']['url']
+      _post.image_thumbnail_url = images['thumbnail']['url']
     end
   end
 
