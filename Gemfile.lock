@@ -194,7 +194,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   heroku_san
   httparty
-  jbuilder
+  jbuilder (~> 1.2)
   jquery-rails
   newrelic_rpm
   pg
