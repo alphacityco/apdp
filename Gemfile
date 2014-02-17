@@ -24,7 +24,7 @@ gem 'newrelic_rpm'
 group :development do
   gem 'sqlite3'
   gem 'heroku_san'
-  gem 'seed_dumper'
+  gem 'seed_dump'
   gem "rails-erd"
 end
 
