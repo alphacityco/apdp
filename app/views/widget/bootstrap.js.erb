@@ -1,0 +1,54 @@
+(function() {
+
+  var WidgetView ={
+    container: "<%= @container %>",
+    viewUrl:  "<%= @view_url %>"
+  };
+
+  // Loading jQuery
+  var jQuery;
+
+  function scriptLoadHandler() {
+    jQuery = window.jQuery.noConflict(true);
+    main();
+  }
+
+  if (window.jQuery === undefined) {
+    var script_tag = document.createElement('script');
+    script_tag.setAttribute("type","text/javascript");
+    script_tag.setAttribute("src", "http://code.jquery.com/jquery-1.11.0.min.js");
+    if (script_tag.readyState) {
+      script_tag.onreadystatechange = function () { // For old versions of IE
+        if (this.readyState == 'complete' || this.readyState == 'loaded') {
+          scriptLoadHandler();
+        }
+      };
+    } else {
+      script_tag.onload = scriptLoadHandler;
+    }
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+  } else {
+    jQuery = window.jQuery;
+    main();
+  }
+
+  // Boostraping widget view
+  function main() {
+    jQuery(document).ready(function($) {
+
+      $.ajax({
+        url:       WidgetView.viewUrl,
+        dataType:  "html",
+        success:   function(data) {
+          var container = (APDPWidget ? APDPWidget.container : void 0) || WidgetView.container;
+          $(container).append(data);
+        },
+        error:     function(){
+          console.log("Something bad happend trying to load " + WidgetView.viewUrl);
+        }
+      });
+
+    });
+  }
+
+})();

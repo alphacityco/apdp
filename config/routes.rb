@@ -7,6 +7,8 @@ Apdp::Application.routes.draw do
 
   get 'api/articles/:src_id/hotels' => 'api/article#hotels'
 
+  get 'widget/hotels' => 'widget/hotel#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
