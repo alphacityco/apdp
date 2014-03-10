@@ -1,7 +1,48 @@
 /*
+ *= require widget/isolated_topcoat
+ *= require widget/jquery.als
  *= require_self
  */
 
-body {
-  background-color: #ccc;
+.apdp-widget-main {
+
+  .als-next, .als-prev {
+    button {
+      display: inline;
+      padding: 3rem 0.25rem;
+    }
+  }
+
+  #my-als-list {
+    height: 200px;
+  }
+
+  #my-als-list .als-item {
+    margin: 0px 5px;
+    padding: 4px 0px;
+    min-height: 120px;
+    min-width: 100px;
+    text-align: center;
+    font-family: "Source Sans";
+  }
+
+  #my-als-list .als-item img {
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 250px;
+  }
+
+  #my-als-list .als-prev, #my-als-list .als-next {
+    top: 30px;
+  }
+
+  #my-als-list .als-prev {
+    left: 200px;
+  }
+
+  #my-als-list .als-next {
+    right: 200px;
+  }
+
 }

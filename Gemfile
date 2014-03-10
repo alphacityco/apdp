@@ -21,6 +21,10 @@ gem 'httparty'
 
 gem 'newrelic_rpm'
 
+gem 'topcoat-rails'
+
+gem "rails-backbone"
+
 group :development do
   gem 'sqlite3'
   gem 'heroku_san'

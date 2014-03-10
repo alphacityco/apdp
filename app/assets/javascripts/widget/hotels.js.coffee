@@ -1,5 +1,8 @@
 #= require jquery
-#* require_tree .
+#= require underscore
+#= require backbone
+#= require widget/jquery.als
 
-$ ->
-  console.log APDPWidget
+do ->
+  $ ->
+    $("#my-als-list").als({circular: "yes", visible_items: 3})

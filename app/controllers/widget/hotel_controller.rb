@@ -9,7 +9,7 @@ class Widget::HotelController < ApplicationController
       @container = ".apdp-widget"
       format.js { render "widget/bootstrap", format: 'js' }
 
-      # shows the widget generator form for the client
+      # shows the widget slider for the client
       format.html
     end
   end
