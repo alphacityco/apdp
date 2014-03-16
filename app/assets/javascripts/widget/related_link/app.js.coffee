@@ -3,13 +3,10 @@
 #= require underscore
 #= require backbone
 
-Hotels = {}
-
 $ ->
-  $("#hotel-list").als
+  $("#related-links").als
     circular: "yes"
     visible_items: 4
 
-  Hotels.init()
 
-Hotels.init ->
+

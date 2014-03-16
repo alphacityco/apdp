@@ -5,7 +5,7 @@ Apdp::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get 'widget/hotels' => 'widget/hotel#index'
+  get 'widget/related_link' => 'widget/related_link#index'
 
   namespace :api do
     resources :article
