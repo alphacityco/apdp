@@ -5,10 +5,12 @@ Apdp::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get 'api/articles/:src_id/hotels' => 'api/article#hotels'
-  get 'api/articles' => 'api/article#index'
-
   get 'widget/hotels' => 'widget/hotel#index'
+
+  namespace :api do
+    resources :article
+    get 'article/:src_id/hotels' => 'article#hotels'
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

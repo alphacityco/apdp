@@ -1,48 +1,62 @@
 /*
  *= require widget/isolated_topcoat
- *= require widget/jquery.als
+ *= require vendor/jquery.als
  *= require_self
  */
 
-.apdp-widget-main {
+.apdp-widget-container {
+  font-family: "Source Sans";
 
-  .als-next, .als-prev {
-    button {
-      display: inline;
-      padding: 3rem 0.25rem;
+  #hotel-list {
+    height: 210px;
+
+    .als-wrapper {
+      padding: 0px;
     }
-  }
 
-  #my-als-list {
-    height: 200px;
-  }
+    .als-item {
+      margin: 0px 5px;
+      padding: 4px 0px;
+      min-height: 137px;
+      min-width: 250px;
+      text-align: center;
 
-  #my-als-list .als-item {
-    margin: 0px 5px;
-    padding: 4px 0px;
-    min-height: 120px;
-    min-width: 100px;
-    text-align: center;
-    font-family: "Source Sans";
-  }
+      img {
+        display: block;
+        margin: 0 auto;
+        vertical-align: middle;
+        width: 250px;
+      }
 
-  #my-als-list .als-item img {
-    display: block;
-    margin: 0 auto;
-    vertical-align: middle;
-    width: 250px;
-  }
+      span {
+        p {
+          margin: 0px;
+          width: 250px;
+          word-wrap: break-word;
+          text-align: justify;
+          cursor: text;
+        }
+      }
 
-  #my-als-list .als-prev, #my-als-list .als-next {
-    top: 30px;
-  }
+    }
 
-  #my-als-list .als-prev {
-    left: 200px;
-  }
+    .als-prev, .als-next {
+      top: 50px;
 
-  #my-als-list .als-next {
-    right: 200px;
+      button {
+        display: inline;
+        padding: 3rem 0.25rem;
+      }
+    }
+
+    .als-prev {
+      left: 50px;
+    }
+
+    .als-next {
+      right: 50px;
+    }
+
   }
 
 }
