@@ -4,7 +4,7 @@ class Api::ArticleController < ApplicationController
     @article = Article.find_by_src_id params[:id]
   end
 
-  def hotels
+  def related_links
     @article = Article.find_by_src_id params[:src_id]
   end
 

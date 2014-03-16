@@ -9,14 +9,14 @@ ActiveAdmin.register ExternService do
       row :updated_at
     end
 
-    panel "Extern URLs List" do
-      extern_service.extern_urls.each do |e_url|
+    panel "Related Link List" do
+      extern_service.related_links.each do |related_link|
 
-        panel "Extern URL ID: #{e_url.id}" do
-          attributes_table_for e_url do
+        panel "Extern URL ID: #{related_link.id}" do
+          attributes_table_for related_link do
             row :url
-            row :extern_service
-            row :hotel
+            row :title
+            row :article
           end
         end
 
@@ -32,15 +32,19 @@ ActiveAdmin.register ExternService do
       f.input :logo_url
     end
 
-    f.has_many :extern_urls, :name => "Extern URLs" do |e_url|
-      e_url.inputs "New URL Relation" do
-        unless e_url.object.nil?
-          e_url.input :_destroy, :as => :boolean, :label => "Delete this url relation?"
+    f.has_many :related_links, :name => "Related Links" do |rel_link_f|
+      rel_link_f.inputs "New Related Link" do
+        unless rel_link_f.object.nil?
+          rel_link_f.input :_destroy, :as => :boolean, :label => "Delete this related link?"
         end
 
-        e_url.input :url
-        e_url.input :extern_service
-        e_url.input :hotel
+        rel_link_f.input :url
+        rel_link_f.input :title
+        rel_link_f.input :image_url
+        rel_link_f.input :article
+        rel_link_f.input :extern_service
+        rel_link_f.input :self_description
+        rel_link_f.input :relation_description
       end
     end
 

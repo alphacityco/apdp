@@ -9,7 +9,7 @@ Apdp::Application.routes.draw do
 
   namespace :api do
     resources :article
-    get 'article/:src_id/hotels' => 'article#hotels'
+    get 'article/:src_id/related_links' => 'article#related_links'
   end
 
   # Example of regular route:

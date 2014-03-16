@@ -29,18 +29,18 @@ ActiveAdmin.register Article do
       row :updated_at
     end
 
-    panel "Hotels List" do
-      article.hotels.each do |hotel|
+    panel "Related Link List" do
+      article.related_links.each do |related_link|
 
-        panel "Hotel ID: #{hotel.id}" do
-          attributes_table_for hotel do
-            row :name
-            row :content
+        panel "Related Link ID: #{related_link.id}" do
+          attributes_table_for related_link do
+            row :url
+            row :title
             row :image_url do
-              img src: hotel.image_url
+              img src: related_link.image_url
             end
-            row :go_to_hotel do
-              link_to 'Go To Hotel', admin_hotel_path( hotel.id )
+            row :go_to_extern_url do
+              link_to 'Go To Related Link', admin_related_link_path( related_link.id )
             end
           end
         end
@@ -66,14 +66,19 @@ ActiveAdmin.register Article do
       f.input :modified
     end
 
-    f.has_many :hotels_relations, :name => "Hotels Relations" do |hot_rel_f|
-      hot_rel_f.inputs "New Hotel Relation" do
-        unless hot_rel_f.object.nil?
-          hot_rel_f.input :_destroy, :as => :boolean, :label => "Delete this hotel relation?"
+    f.has_many :related_link, :name => "Related Links" do |rel_link_f|
+      rel_link_f.inputs "New related link" do
+        unless rel_link_f.object.nil?
+          rel_link_f.input :_destroy, :as => :boolean, :label => "Delete this related link?"
         end
 
-        hot_rel_f.input :hotel
-        hot_rel_f.input :relation_description
+        rel_link_f.input :url
+        rel_link_f.input :title
+        rel_link_f.input :image_url
+        rel_link_f.input :article
+        rel_link_f.input :extern_service
+        rel_link_f.input :self_description
+        rel_link_f.input :relation_description
       end
     end
 

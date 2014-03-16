@@ -65,12 +65,6 @@ ActiveRecord::Schema.define(version: 20140209161500) do
 
   add_index "articles", ["src_id"], name: "index_articles_on_src_id", unique: true
 
-  create_table "articles_hotels", force: true do |t|
-    t.integer "article_id"
-    t.integer "hotel_id"
-    t.text    "relation_description"
-  end
-
   create_table "authors", force: true do |t|
     t.integer  "src_id"
     t.string   "name"
@@ -90,18 +84,14 @@ ActiveRecord::Schema.define(version: 20140209161500) do
     t.datetime "updated_at"
   end
 
-  create_table "extern_urls", force: true do |t|
+  create_table "related_links", force: true do |t|
     t.string   "url"
+    t.integer  "article_id"
     t.integer  "extern_service_id"
-    t.integer  "hotel_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "hotels", force: true do |t|
-    t.string   "name"
+    t.string   "title"
     t.string   "image_url"
-    t.text     "content"
+    t.text     "self_description"
+    t.text     "relation_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
