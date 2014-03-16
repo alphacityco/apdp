@@ -5,7 +5,11 @@ class Api::ArticleController < ApplicationController
   end
 
   def related_links
-    @article = Article.find_by_src_id params[:src_id]
+    unless params[:slug].blank?
+      @article = Article.find_by_slug params[:slug]
+    else
+      @article = Article.find_by_src_id params[:src_id]
+    end
   end
 
 end

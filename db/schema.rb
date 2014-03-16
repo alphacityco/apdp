@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140209161500) do
 
   create_table "articles", force: true do |t|
     t.integer  "src_id"
+    t.string   "slug"
     t.string   "title_plain"
     t.string   "status"
     t.text     "content"
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140209161500) do
     t.datetime "updated_at"
   end
 
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
   add_index "articles", ["src_id"], name: "index_articles_on_src_id", unique: true
 
   create_table "authors", force: true do |t|

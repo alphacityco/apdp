@@ -1,5 +1,6 @@
 # article
 json.src_id @article.src_id
+json.slug @article.slug
 json.title_plain @article.title_plain
 json.excerpt @article.content
 

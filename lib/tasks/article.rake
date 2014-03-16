@@ -11,6 +11,7 @@ namespace :articles do
     end
 
     Article.find_or_create_by(src_id: post['id']) do |_post|
+      _post.slug = post['slug']
       _post.title_plain = post['title_plain']
       _post.status = post['status']
       _post.content = post['content']
