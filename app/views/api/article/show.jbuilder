@@ -6,5 +6,5 @@ json.excerpt @article.content
 # author
 json.author @article.author, :src_id, :name, :nickname, :url
 
-# hotels
+# related links
 json.related_links @article.related_links
