@@ -1,9 +1,9 @@
 
-json.array! @article.related_links do |extern_url|
-  json.title extern_url.title
-  json.url extern_url.url
-  json.image_url extern_url.image_url
-  json.self_description extern_url.self_description
-  json.relation_description extern_url.relation_description
-  json.extern_service extern_url.extern_service
+json.array! @article.related_links do |related_link|
+  json.title related_link.title
+  json.url related_link.url
+  json.image_url related_link.image_url
+  json.self_description related_link.self_description
+  json.relation_description related_link.relation_description
+  json.extern_service related_link.extern_service
 end

@@ -39,7 +39,7 @@ ActiveAdmin.register Article do
             row :image_url do
               img src: related_link.image_url
             end
-            row :go_to_extern_url do
+            row :go_to_related_link do
               link_to 'Go To Related Link', admin_related_link_path( related_link.id )
             end
           end

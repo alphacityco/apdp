@@ -7,6 +7,3 @@ $ ->
   $("#related-links").als
     circular: "yes"
     visible_items: 4
-
-
-

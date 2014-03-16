@@ -12,7 +12,7 @@ ActiveAdmin.register ExternService do
     panel "Related Link List" do
       extern_service.related_links.each do |related_link|
 
-        panel "Extern URL ID: #{related_link.id}" do
+        panel "Related Link ID: #{related_link.id}" do
           attributes_table_for related_link do
             row :url
             row :title
