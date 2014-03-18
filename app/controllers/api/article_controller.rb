@@ -1,15 +1,13 @@
-class Api::ArticleController < ApplicationController
+class Api::ArticleController < Api::MainController
+  after_filter :allow_crossdomain
 
   def show
     @article = Article.find_by_src_id params[:id]
   end
 
   def related_links
-    unless params[:slug].blank?
-      @article = Article.find_by_slug params[:slug]
-    else
-      @article = Article.find_by_src_id params[:src_id]
-    end
+    article_id = params[:id].to_s
+    @article   = Article.where('src_id = ? OR slug = ?', article_id, article_id).first!
   end
 
 end
