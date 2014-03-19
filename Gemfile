@@ -1,29 +1,22 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
+
 gem 'coffee-rails', '~> 4.0.0'
-# Use jquery as the JavaScript library
+gem 'sass-rails', '~> 4.0.0'
 gem 'jquery-rails'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'topcoat-rails'
+gem 'rails-backbone'
+gem 'handlebars_assets'
 
 gem 'thin'
+gem 'uglifier', '>= 1.3.0'
+gem 'jbuilder', '~> 1.2'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'httparty'
-
 gem 'newrelic_rpm'
-
-gem 'topcoat-rails'
-
-gem "rails-backbone"
 
 group :development do
   gem 'sqlite3'

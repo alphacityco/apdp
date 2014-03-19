@@ -2,31 +2,44 @@ window.RelatedLinks ?= {}
 RelatedLinks.Views  ?= {}
 
 RelatedLinks.Views.Start = Backbone.View.extend
+  el: '.apdp-widget-container'
 
   initialize: ->
     @cacheElements()
 
-    @render()
+    @hideSlider()
+
+    @collection = new RelatedLinks.Collections.Links [], articleId: @options.articleId
+    @fetchLinks()
+
+  fetchLinks: -> @collection.fetch
+    success: => @showSlider()
+    error:   => @showTryAgainMessage()
 
   cacheElements: ->
-    @$el = $('.apdp-widget-container')
     @$spinner = @$('.topcoat-spinner')
     @$slider  = @$('#related-links')
 
-  initSlider: ->
-    @$slider.als
-      circular: "yes"
-      visible_items: 3
-
-  render: ->
+  hideSlider: ->
     @$spinner.show()
-
-    links = new RelatedLinks.Collections.Links [], articleId: @options.articleId
-
-    links.fetch success: => @showSlider()
+    @$slider.hide()
 
   showSlider: ->
     @$spinner.hide()
+    $el = @$('.als-wrapper')
+
+    for link in @collection.models
+      new RelatedLinks.Views.Link
+        el: $el
+        model: link
 
     @$slider.show()
     @initSlider()
+
+  showTryAgainMessage: ->
+
+
+  initSlider: ->
+    @$slider.als
+      circular: 'yes'
+      visible_items: 3
