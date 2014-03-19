@@ -3,9 +3,10 @@ RelatedLinks.Collections ?= {}
 
 RelatedLinks.Collections.Links = Backbone.Collection.extend
   model: RelatedLinks.Models.Link
+  host: gon.HOST_URL
 
   initialize: (models, options) ->
     @articleId = options.articleId
 
   url: ->
-    "http://localhost:3000/api/article/#{@articleId}/related_links"
+    "#{@host}/api/article/#{@articleId}/related_links"

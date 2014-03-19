@@ -11,6 +11,7 @@ class Widget::RelatedLinkController < ApplicationController
 
       # shows the widget slider for the client
       format.html
+      gon.HOST_URL = ENV['HOST_URL']
     end
   end
 

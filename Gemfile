@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'topcoat-rails'
 gem 'rails-backbone'
 gem 'handlebars_assets'
+gem 'gon'
 
 gem 'thin'
 gem 'uglifier', '>= 1.3.0'

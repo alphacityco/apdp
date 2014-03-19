@@ -6,6 +6,10 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+if Rails.env.development?
+    load(File.expand_path('../load_settings.rb', __FILE__))
+end
+
 module Apdp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
