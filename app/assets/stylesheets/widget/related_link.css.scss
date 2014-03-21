@@ -22,11 +22,22 @@
       min-width: 250px;
       text-align: center;
 
-      img {
-        display: block;
-        margin: 0 auto;
-        vertical-align: middle;
-        width: 250px;
+      a {
+
+        .extern-service-logo {
+          position: absolute;
+
+          img {
+            width: 35px;
+          }
+        }
+
+        img {
+          display: block;
+          margin: 0 auto;
+          vertical-align: middle;
+          width: 250px;
+        }
       }
 
       span {
