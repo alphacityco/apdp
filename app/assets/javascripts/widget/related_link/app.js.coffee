@@ -12,6 +12,6 @@
 #= require_self
 
 $ ->
-  articleId = '50-martinis-en-el-ritz-y-un-bloody-mary-por-encargo' # window.location.pathname.split('/')[1]
+  articleId = APDPWidget?.articleId or window.location.pathname.split('/')[1]
 
   new RelatedLinks.Views.Start { articleId }
