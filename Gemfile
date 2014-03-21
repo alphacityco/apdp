@@ -15,6 +15,7 @@ gem 'thin'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 1.2'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'require_all'
 
 gem 'httparty'
 gem 'newrelic_rpm'

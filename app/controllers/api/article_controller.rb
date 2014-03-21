@@ -7,7 +7,12 @@ class Api::ArticleController < Api::MainController
 
   def related_links
     article_id = params[:id].to_s
-    @article   = Article.where('src_id = ? OR slug = ?', article_id, article_id).first!
+
+    if article_id.is_number?
+      @article = Article.find_by_src_id article_id
+    else
+      @article = Article.find_by_slug article_id
+    end
   end
 
 end

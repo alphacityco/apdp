@@ -7,7 +7,7 @@ require 'rails/all'
 Bundler.require(:default, Rails.env)
 
 if Rails.env.development?
-    load(File.expand_path('../load_settings.rb', __FILE__))
+    load File.expand_path('../load_settings.rb', __FILE__)
 end
 
 module Apdp
