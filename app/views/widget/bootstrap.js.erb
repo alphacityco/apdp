@@ -1,51 +1,41 @@
 (function() {
 
-  var WidgetView ={
-    container: "<%= @container %>",
-    viewUrl:   "<%= @view_url %>"
-  };
-
-  // Loading jQuery
   var jQuery;
 
-  function scriptLoadHandler() {
-    jQuery = window.jQuery.noConflict(true);
-    main();
-  }
+  var WidgetView = {
+    selector: (APDPWidget ? APDPWidget.container : void 0) || "<%= @container %>",
+    viewUrl:   "<%= @view_url %>",
+    spinnerUrl: "https://dl.dropboxusercontent.com/u/4282792/apdp-global-spinner.gif",
+    getContainer: function() {
+      if (this.$container) return this.$container;
 
-  if (window.jQuery === undefined) {
-    var scriptTag = document.createElement('script');
-    scriptTag.setAttribute("type","text/javascript");
-    scriptTag.setAttribute("src", "http://code.jquery.com/jquery-1.11.0.min.js");
-    if (scriptTag.readyState) {
-      scriptTag.onreadystatechange = function () { // For old versions of IE
-        if (this.readyState == 'complete' || this.readyState == 'loaded') {
-          scriptLoadHandler();
-        }
-      };
-    } else {
-      scriptTag.onload = scriptLoadHandler;
+      var selector = this.selector.replace('#', '').replace('.', '');
+      return this.$container = document.getElementById(selector) || document.getElementsByClassName(selector)[0];
     }
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(scriptTag);
-  } else {
-    jQuery = window.jQuery;
-    main();
+  };
+
+  var showSpinner = function(){
+    var $container   = WidgetView.getContainer();
+    var $spinner     = document.createElement('img');
+    $spinner.src     = WidgetView.spinnerUrl;
+    $container.style = 'text-align:center;';
+
+    $container.appendChild($spinner);
+  };
+
+  var loadHandler = function (){
+    jQuery = window.jQuery.noConflict(true);
+    startWidget();
   }
 
-  // Boostraping widget view
-  function main() {
+  var startWidget = function() {
     jQuery(document).ready(function($) {
-      var containerSelector = (APDPWidget ? APDPWidget.container : void 0) || WidgetView.container;
-      var $container = $(containerSelector)
-      $container.attr('style', 'text-align:center;');
-      $container.append('<img src="https://dl.dropboxusercontent.com/u/4282792/spinner.gif">');
-
       $.ajax({
         url:       WidgetView.viewUrl,
         dataType:  "html",
         success:   function(data) {
-          $container.empty();
-          $container.append(data);
+          var $container = $(WidgetView.getContainer());
+          $container.html(data);
         },
         error:     function(){
           console.log("Something bad happend trying to load " + WidgetView.viewUrl);
@@ -53,6 +43,26 @@
       });
 
     });
+  }
+
+  window.onload = showSpinner;
+  if (window.jQuery === undefined) {
+    var scriptTag = document.createElement('script');
+    scriptTag.setAttribute("type","text/javascript");
+    scriptTag.setAttribute("src", "http://code.jquery.com/jquery-1.11.0.min.js");
+    if (scriptTag.readyState) {
+      scriptTag.onreadystatechange = function () { // For old versions of IE
+        if (this.readyState == 'complete' || this.readyState == 'loaded') {
+          loadHandler();
+        }
+      };
+    } else {
+      scriptTag.onload = loadHandler;
+    }
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(scriptTag);
+  } else {
+    jQuery = window.jQuery;
+    startWidget();
   }
 
 })();
