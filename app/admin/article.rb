@@ -66,7 +66,7 @@ ActiveAdmin.register Article do
       f.input :modified
     end
 
-    f.has_many :related_link, :name => "Related Links" do |rel_link_f|
+    f.has_many :related_links, :name => "Related Links" do |rel_link_f|
       rel_link_f.inputs "New related link" do
         unless rel_link_f.object.nil?
           rel_link_f.input :_destroy, :as => :boolean, :label => "Delete this related link?"
