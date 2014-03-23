@@ -19,6 +19,7 @@ gem 'require_all'
 
 gem 'httparty'
 gem 'newrelic_rpm'
+gem 'expedia'
 
 group :development do
   gem 'sqlite3'
