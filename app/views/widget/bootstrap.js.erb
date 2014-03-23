@@ -3,9 +3,9 @@
   var jQuery;
 
   var WidgetView = {
-    selector: (APDPWidget ? APDPWidget.container : void 0) || "<%= @container %>",
-    viewUrl:   "<%= @view_url %>",
-    spinnerUrl: "https://dl.dropboxusercontent.com/u/4282792/apdp-global-spinner.gif",
+    selector: (APDPWidget ? APDPWidget.container : void 0) || '<%= @container %>',
+    viewUrl:   '<%= @view_url %>',
+    spinnerUrl: 'https://dl.dropboxusercontent.com/u/4282792/apdp-global-spinner.gif',
     getContainer: function() {
       if (this.$container) return this.$container;
 
@@ -18,7 +18,7 @@
     var $container   = WidgetView.getContainer();
     var $spinner     = document.createElement('img');
     $spinner.src     = WidgetView.spinnerUrl;
-    $container.style = 'text-align:center;';
+    $container.setAttribute('style', 'text-align:center;');
 
     $container.appendChild($spinner);
   };
@@ -31,14 +31,14 @@
   var startWidget = function() {
     jQuery(document).ready(function($) {
       $.ajax({
-        url:       WidgetView.viewUrl,
-        dataType:  "html",
-        success:   function(data) {
+        url:      WidgetView.viewUrl,
+        dataType: 'html',
+        success: function(data) {
           var $container = $(WidgetView.getContainer());
           $container.html(data);
         },
-        error:     function(){
-          console.log("Something bad happend trying to load " + WidgetView.viewUrl);
+        error: function(){
+          console.log('Something bad happend trying to load ' + WidgetView.viewUrl);
         }
       });
 
@@ -48,8 +48,8 @@
   window.onload = showSpinner;
   if (window.jQuery === undefined) {
     var scriptTag = document.createElement('script');
-    scriptTag.setAttribute("type","text/javascript");
-    scriptTag.setAttribute("src", "http://code.jquery.com/jquery-1.11.0.min.js");
+    scriptTag.setAttribute('type', 'text/javascript');
+    scriptTag.setAttribute('src', 'http://code.jquery.com/jquery-1.11.0.min.js');
     if (scriptTag.readyState) {
       scriptTag.onreadystatechange = function () { // For old versions of IE
         if (this.readyState == 'complete' || this.readyState == 'loaded') {
@@ -59,7 +59,7 @@
     } else {
       scriptTag.onload = loadHandler;
     }
-    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(scriptTag);
+    (document.getElementsByTagName('head')[0] || document.documentElement).appendChild(scriptTag);
   } else {
     jQuery = window.jQuery;
     startWidget();
