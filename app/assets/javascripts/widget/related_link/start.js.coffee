@@ -4,6 +4,9 @@ RelatedLinks.Views  ?= {}
 RelatedLinks.Views.Start = Backbone.View.extend
   el: '.apdp-widget-container'
 
+  events:
+    'click .try-again button': 'tryAgain'
+
   initialize: ->
     @cacheElements()
 
@@ -14,15 +17,16 @@ RelatedLinks.Views.Start = Backbone.View.extend
 
   fetchLinks: -> @collection.fetch
     success: => @showSlider()
-    error:   => @showTryAgainMessage()
+    error:   => @showTryAgain()
 
   cacheElements: ->
-    @$spinner = @$('.topcoat-spinner')
-    @$slider  = @$('#related-links')
+    @$spinner  = @$('.topcoat-spinner')
+    @$slider   = @$('#related-links')
+    @$tryAgain = @$('.try-again')
 
   hideSlider: ->
-    @$spinner.show()
     @$slider.hide()
+    @$spinner.show()
 
   showSlider: ->
     @$spinner.hide()
@@ -36,8 +40,17 @@ RelatedLinks.Views.Start = Backbone.View.extend
     @$slider.show()
     @initSlider()
 
-  showTryAgainMessage: ->
+  showTryAgain: ->
+    @$spinner.hide()
+    @$tryAgain.show()
 
+  hideTryAgain: ->
+    @$tryAgain.hide()
+    @$spinner.show()
+
+  tryAgain: ->
+    @hideTryAgain()
+    @fetchLinks()
 
   initSlider: ->
     @$slider.als
